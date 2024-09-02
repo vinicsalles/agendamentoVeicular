@@ -8,7 +8,7 @@ function Feed() {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
 
-  axios.get("http://localhost:8080/cadastros", config).then((response) => {
+  axios.get("http://localhost:8080/cadastros").then((response) => {
     setPosts(response.data);
   });
 
@@ -18,7 +18,7 @@ function Feed() {
     };
 
     axios
-      .delete(`http://localhost:8080/cadastros/${id}`, config)
+      .delete(`http://localhost:8080/cadastros/${id}`)
       .then(() => {
         setPosts(posts.filter((post) => post.id !== id));
       })
